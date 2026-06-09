@@ -1,0 +1,200 @@
+---
+import "../styles/global.css";
+import {
+  certifications,
+  education,
+  experience,
+  languages,
+  profile,
+  projects,
+  skillGroups,
+} from "../data/profile";
+
+const pageTitle = `${profile.name} - Software Engineer`;
+const pageDescription =
+  "Software engineer building production systems and public products across healthcare access, creator commerce, and AI-assisted job search.";
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content={pageDescription} />
+    <meta name="robots" content="index, follow" />
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={pageDescription} />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <title>{pageTitle}</title>
+  </head>
+  <body>
+    <header class="site-header" aria-label="Primary navigation">
+      <a class="brand" href="#top" aria-label={`${profile.name} home`}>
+        <span class="brand-mark" aria-hidden="true">EAJ</span>
+        <span>{profile.name}</span>
+      </a>
+      <nav class="nav-links">
+        <a href="#projects">Projects</a>
+        <a href="#experience">Experience</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </header>
+
+    <main id="top">
+      <section class="hero section-shell">
+        <div class="hero-copy">
+          <p class="eyebrow">Software generalist · Production systems · Current products</p>
+          <h1>{profile.name}</h1>
+          <p class="hero-lede">{profile.headline}</p>
+          <p class="hero-summary">{profile.summary}</p>
+          <div class="hero-actions" aria-label="Contact links">
+            <a class="button primary" href={`mailto:${profile.email}`}>Email Elias</a>
+            <a class="button secondary" href={profile.linkedin} target="_blank" rel="noreferrer">LinkedIn</a>
+          </div>
+        </div>
+
+        <aside class="current-work" id="projects" aria-labelledby="current-work-heading">
+          <div class="section-kicker">Currently building</div>
+          <h2 id="current-work-heading">Currently working on</h2>
+          <div class="project-list">
+            {
+              projects.map((project) => (
+                <a class="project-card" href={project.url} target="_blank" rel="noreferrer">
+                  <span class="project-meta">
+                    <span>{project.status}</span>
+                    <span>{project.focus}</span>
+                  </span>
+                  <span class="project-title">
+                    {project.name}
+                    <span aria-hidden="true">-&gt;</span>
+                  </span>
+                  <span class="project-description">{project.description}</span>
+                </a>
+              ))
+            }
+          </div>
+        </aside>
+      </section>
+
+      <section class="section-shell proof-section" aria-labelledby="proof-heading">
+        <div>
+          <p class="section-kicker">Credibility</p>
+          <h2 id="proof-heading">Production experience with a builder's range.</h2>
+        </div>
+        <div class="proof-grid">
+          {
+            profile.highlights.map((highlight) => (
+              <article class="proof-card">
+                <p>{highlight}</p>
+              </article>
+            ))
+          }
+        </div>
+      </section>
+
+      <section class="section-shell split-section" aria-labelledby="experience-heading" id="experience">
+        <div class="section-intro">
+          <p class="section-kicker">Experience</p>
+          <h2 id="experience-heading">From media orchestration to finance, accessibility, and startups.</h2>
+        </div>
+        <div class="timeline">
+          {
+            experience.map((job) => (
+              <article class="timeline-item">
+                <div class="timeline-topline">
+                  <span>{job.period}</span>
+                  <span>{job.location}</span>
+                </div>
+                <h3>{job.role}</h3>
+                <p class="company">{job.company}</p>
+                <ul>
+                  {job.highlights.map((highlight) => (
+                    <li>{highlight}</li>
+                  ))}
+                </ul>
+              </article>
+            ))
+          }
+        </div>
+      </section>
+
+      <section class="section-shell split-section skills-section" aria-labelledby="skills-heading">
+        <div class="section-intro">
+          <p class="section-kicker">Skills</p>
+          <h2 id="skills-heading">Strongest where product needs meet system constraints.</h2>
+        </div>
+        <div class="skills-grid">
+          {
+            skillGroups.map((group) => (
+              <article class="skill-card">
+                <h3>{group.title}</h3>
+                <ul>
+                  {group.items.map((item) => (
+                    <li>{item}</li>
+                  ))}
+                </ul>
+              </article>
+            ))
+          }
+        </div>
+      </section>
+
+      <section class="section-shell credentials-section" aria-labelledby="credentials-heading">
+        <div>
+          <p class="section-kicker">Credentials</p>
+          <h2 id="credentials-heading">Education, certification, and languages.</h2>
+        </div>
+        <div class="credentials-grid">
+          <article>
+            <h3>Education</h3>
+            <ul class="plain-list">
+              {
+                education.map((item) => (
+                  <li>
+                    <strong>{item.credential}</strong>
+                    <span>{item.school}</span>
+                    <small>{item.detail}</small>
+                  </li>
+                ))
+              }
+            </ul>
+          </article>
+          <article>
+            <h3>Certification</h3>
+            <ul class="plain-list">
+              {certifications.map((item) => <li>{item}</li>)}
+            </ul>
+          </article>
+          <article>
+            <h3>Languages</h3>
+            <ul class="plain-list">
+              {languages.map((item) => <li>{item}</li>)}
+            </ul>
+          </article>
+        </div>
+      </section>
+
+      <section class="section-shell contact-section" aria-labelledby="contact-heading" id="contact">
+        <div>
+          <p class="section-kicker">Contact</p>
+          <h2 id="contact-heading">Open to sharp engineering conversations.</h2>
+          <p>
+            Based in {profile.location}. Best reached by email or LinkedIn for engineering roles,
+            product collaborations, and useful ideas worth building.
+          </p>
+        </div>
+        <div class="contact-actions">
+          <a class="button primary" href={`mailto:${profile.email}`}>{profile.email}</a>
+          <a class="button secondary" href={profile.linkedin} target="_blank" rel="noreferrer">LinkedIn profile</a>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <span>{profile.name}</span>
+      <span>Building from Beirut.</span>
+    </footer>
+  </body>
+</html>
