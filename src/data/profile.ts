@@ -33,6 +33,7 @@ export const profile = {
   highlights: [
     "8 years across backend, full-stack, finance, accessibility, media, and startup environments.",
     "Built and operated Prime Video orchestration systems handling tens of thousands of workflows daily.",
+    "Ship products largely solo by orchestrating AI coding agents across the stack - the same orchestration discipline I brought to Prime Video, applied to how I build.",
     "Migrated production components to Java, reducing deployment time from days to hours.",
     "Raised unit and integration test coverage to 90% while simplifying remediation paths.",
   ],
