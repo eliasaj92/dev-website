@@ -1,9 +1,10 @@
 export type Project = {
   name: string;
   url: string;
-  status: string;
+  stage: "Live" | "Early access" | "In development";
   focus: string;
   description: string;
+  tags: string[];
 };
 
 export type Experience = {
@@ -39,28 +40,31 @@ export const profile = {
 
 export const projects: Project[] = [
   {
-    name: "Dr. Ordo",
-    url: "https://www.drordo.com/",
-    status: "Currently building",
-    focus: "Healthcare access",
+    name: "HiredSignal",
+    url: "https://hiredsignal.com/",
+    stage: "Live",
+    focus: "AI-assisted job search",
     description:
-      "A doctor-booking product for finding practitioners, booking appointments, and managing health records in one place.",
+      "A job board that re-verifies every listing daily and ranks the freshest roles first. Plain-English vector search, source-attributed links, and an MCP server plus API so AI agents can search too. Works for job seekers, never employers.",
+    tags: ["Vector search", "MCP server", "Daily re-verified", "Chrome extension"],
   },
   {
     name: "PIE",
     url: "https://pieapp.io/",
-    status: "Currently building",
+    stage: "Early access",
     focus: "Creator commerce",
     description:
-      "A creator-powered marketplace connecting influencers, shoppers, and brands through storefronts, cashback, quests, and loyalty.",
+      "A creator platform that gamifies and boosts audience engagement while promoting influencers' affiliate products through storefronts, cashback, and quests.",
+    tags: ["Influencer storefronts", "Cashback", "Quests & loyalty", "Affiliate networks"],
   },
   {
-    name: "HiredSignal",
-    url: "https://hiredsignal.com/",
-    status: "Currently building",
-    focus: "AI-assisted job search",
+    name: "Dr. Ordo",
+    url: "https://www.drordo.com/",
+    stage: "In development",
+    focus: "Healthcare access",
     description:
-      "A freshness-ranked public job board with source-attributed listings, vector search, and MCP/API surfaces for AI agents.",
+      "Modern healthcare access for Lebanon - one place to find the right practitioner, book appointments in seconds, and keep a medical history that follows the patient from visit to visit. Built to replace scattered phone calls and paper files with care that just works.",
+    tags: ["Built for Lebanon", "Appointment booking", "Health records"],
   },
 ];
 
@@ -121,20 +125,20 @@ export const experience: Experience[] = [
 
 export const skillGroups = [
   {
-    title: "Systems",
-    items: ["System design", "Microservices", "Workflow orchestration", "Databases", "On-call operations"],
+    title: "Languages & frameworks",
+    items: ["Java", "Spring Boot", "Python", "TypeScript", "React", "C#"],
   },
   {
-    title: "Backend",
-    items: ["Java", "Spring Boot", "Python", "C#", "PostgreSQL", "Testing"],
+    title: "Systems & data",
+    items: ["System design", "Microservices", "Workflow orchestration", "PostgreSQL", "DynamoDB", "Headless CMS"],
   },
   {
-    title: "Product",
-    items: ["TypeScript", "React", "CMS integration", "Accessibility software", "Cross-functional delivery"],
+    title: "AWS & infrastructure",
+    items: ["Lambda", "ECS", "Step Functions", "SQS", "SNS", "CloudWatch", "Infrastructure as code (CDK)", "Docker", "CI/CD"],
   },
   {
-    title: "Delivery",
-    items: ["AWS", "Docker", "CI/CD", "Code review", "Unit and integration testing"],
+    title: "Engineering practices",
+    items: ["Testing", "Code review", "On-call operations", "Cross-functional delivery", "Accessibility"],
   },
 ];
 

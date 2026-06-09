@@ -56,14 +56,14 @@ const pageDescription =
         </div>
 
         <aside class="current-work" id="projects" aria-labelledby="current-work-heading">
-          <div class="section-kicker">Currently building</div>
-          <h2 id="current-work-heading">Currently working on</h2>
+          <div class="section-kicker">Building in public</div>
+          <h2 id="current-work-heading">Currently building</h2>
           <div class="project-list">
             {
               projects.map((project) => (
                 <a class="project-card" href={project.url} target="_blank" rel="noreferrer">
                   <span class="project-meta">
-                    <span>{project.status}</span>
+                    <span class="project-stage" data-stage={project.stage}>{project.stage}</span>
                     <span>{project.focus}</span>
                   </span>
                   <span class="project-title">
@@ -71,6 +71,11 @@ const pageDescription =
                     <span aria-hidden="true">-&gt;</span>
                   </span>
                   <span class="project-description">{project.description}</span>
+                  <span class="project-tags">
+                    {project.tags.map((tag) => (
+                      <span class="project-tag">{tag}</span>
+                    ))}
+                  </span>
                 </a>
               ))
             }
@@ -181,8 +186,9 @@ const pageDescription =
           <p class="section-kicker">Contact</p>
           <h2 id="contact-heading">Open to sharp engineering conversations.</h2>
           <p>
-            Based in {profile.location}. Best reached by email or LinkedIn for engineering roles,
-            product collaborations, and useful ideas worth building.
+            Lebanese-Canadian, based in {profile.location} - authorized to work in Canada with no
+            sponsorship, and open to remote roles. Best reached by email or LinkedIn for engineering
+            roles, product collaborations, and useful ideas worth building.
           </p>
         </div>
         <div class="contact-actions">
