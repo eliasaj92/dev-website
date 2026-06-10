@@ -30,13 +30,6 @@ export const profile = {
     "Software engineer building production systems and useful products across healthcare access, creator commerce, and AI-assisted job search.",
   summary:
     "I work across backend systems, product engineering, and pragmatic infrastructure. Most recently, I was an SDE at Amazon Prime Video, where I helped build and operate encoding orchestration systems processing tens of thousands of workflows daily. Since Amazon, I have been actively building public products: Dr. Ordo, PIE, and HiredSignal.",
-  highlights: [
-    "8 years across backend, full-stack, finance, accessibility, media, and startup environments.",
-    "Built and operated Prime Video orchestration systems handling tens of thousands of workflows daily.",
-    "Ship products largely solo by orchestrating AI coding agents across the stack - the same orchestration discipline I brought to Prime Video, applied to how I build.",
-    "Migrated production components to Java, reducing deployment time from days to hours.",
-    "Raised unit and integration test coverage to 90% while simplifying remediation paths.",
-  ],
 };
 
 export const projects: Project[] = [

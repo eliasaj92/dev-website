@@ -35,11 +35,17 @@ const pageDescription =
         <span class="brand-mark" aria-hidden="true">EAJ</span>
         <span>{profile.name}</span>
       </a>
-      <nav class="nav-links">
-        <a href="#projects">Projects</a>
-        <a href="#experience">Experience</a>
-        <a href="#contact">Contact</a>
-      </nav>
+      <div class="header-nav">
+        <nav class="nav-links">
+          <a href="#projects">Projects</a>
+          <a href="#experience">Experience</a>
+          <a href="#contact">Contact</a>
+        </nav>
+        <div class="header-actions">
+          <a class="button compact primary" href={`mailto:${profile.email}`}>Email</a>
+          <a class="button compact secondary" href={profile.linkedin} target="_blank" rel="noreferrer">LinkedIn</a>
+        </div>
+      </div>
     </header>
 
     <main id="top">
@@ -48,15 +54,10 @@ const pageDescription =
           <h1>{profile.name}</h1>
           <p class="hero-lede">{profile.headline}</p>
           <p class="hero-summary">{profile.summary}</p>
-          <div class="hero-actions" aria-label="Contact links">
-            <a class="button primary" href={`mailto:${profile.email}`}>Email Elias</a>
-            <a class="button secondary" href={profile.linkedin} target="_blank" rel="noreferrer">LinkedIn</a>
-          </div>
         </div>
 
         <aside class="current-work" id="projects" aria-labelledby="current-work-heading">
-          <div class="section-kicker">Building in public</div>
-          <h2 id="current-work-heading">Currently building</h2>
+          <p class="section-kicker" id="current-work-heading">Currently building</p>
           <div class="project-list">
             {
               projects.map((project) => (
@@ -82,26 +83,9 @@ const pageDescription =
         </aside>
       </section>
 
-      <section class="section-shell proof-section" aria-labelledby="proof-heading">
-        <div>
-          <p class="section-kicker">Credibility</p>
-          <h2 id="proof-heading">Production experience with a builder's range.</h2>
-        </div>
-        <div class="proof-grid">
-          {
-            profile.highlights.map((highlight) => (
-              <article class="proof-card">
-                <p>{highlight}</p>
-              </article>
-            ))
-          }
-        </div>
-      </section>
-
       <section class="section-shell split-section" aria-labelledby="experience-heading" id="experience">
         <div class="section-intro">
-          <p class="section-kicker">Experience</p>
-          <h2 id="experience-heading">From media orchestration to finance, accessibility, and startups.</h2>
+          <p class="section-kicker" id="experience-heading">Experience</p>
         </div>
         <div class="timeline">
           {
@@ -126,8 +110,7 @@ const pageDescription =
 
       <section class="section-shell split-section skills-section" aria-labelledby="skills-heading">
         <div class="section-intro">
-          <p class="section-kicker">Skills</p>
-          <h2 id="skills-heading">Strongest where product needs meet system constraints.</h2>
+          <p class="section-kicker" id="skills-heading">Skills</p>
         </div>
         <div class="skills-grid">
           {
@@ -147,8 +130,7 @@ const pageDescription =
 
       <section class="section-shell credentials-section" aria-labelledby="credentials-heading">
         <div>
-          <p class="section-kicker">Credentials</p>
-          <h2 id="credentials-heading">Education, certification, and languages.</h2>
+          <p class="section-kicker" id="credentials-heading">Credentials</p>
         </div>
         <div class="credentials-grid">
           <article>
@@ -182,8 +164,7 @@ const pageDescription =
 
       <section class="section-shell contact-section" aria-labelledby="contact-heading" id="contact">
         <div>
-          <p class="section-kicker">Contact</p>
-          <h2 id="contact-heading">Open to sharp engineering conversations.</h2>
+          <p class="section-kicker" id="contact-heading">Contact</p>
           <p>
             Lebanese-Canadian, based in {profile.location} - authorized to work in Canada with no
             sponsorship, and open to remote roles. Best reached by email or LinkedIn for engineering
@@ -196,10 +177,5 @@ const pageDescription =
         </div>
       </section>
     </main>
-
-    <footer class="site-footer">
-      <span>{profile.name}</span>
-      <span>Building from Beirut.</span>
-    </footer>
   </body>
 </html>
