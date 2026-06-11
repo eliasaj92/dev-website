@@ -13,6 +13,20 @@ import {
 const pageTitle = `${profile.name} - Software Engineer`;
 const pageDescription =
   "Software engineer building production systems and public products across healthcare access, creator commerce, and AI-assisted job search.";
+
+const [givenName, ...familyNameParts] = profile.name.split(" ");
+const familyName = familyNameParts.join(" ");
+
+const accentPhrases: Array<[string, string]> = [
+  ["healthcare access", "steel"],
+  ["creator commerce", "clay"],
+  ["AI-assisted job search", "forest"],
+];
+const heroLede = accentPhrases.reduce(
+  (html, [phrase, accent]) =>
+    html.replace(phrase, `<em class="accent-${accent}">${phrase}</em>`),
+  profile.headline,
+);
 ---
 
 <!doctype html>
@@ -22,11 +36,18 @@ const pageDescription =
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content={pageDescription} />
     <meta name="robots" content="index, follow" />
+    <meta name="theme-color" content="#fbfaf7" />
     <meta property="og:title" content={pageTitle} />
     <meta property="og:description" content={pageDescription} />
     <meta property="og:type" content="website" />
     <meta name="twitter:card" content="summary_large_image" />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&family=IBM+Plex+Mono:ital,wght@0,400;0,500;0,600;1,400&display=swap"
+    />
     <title>{pageTitle}</title>
   </head>
   <body>
@@ -53,13 +74,22 @@ const pageDescription =
     <main id="top">
       <section class="hero section-shell">
         <div class="hero-copy">
-          <h1>{profile.name}</h1>
-          <p class="hero-lede">{profile.headline}</p>
+          <p class="hero-status">
+            <span class="status-dot" aria-hidden="true"></span>
+            {profile.location} — open to remote work
+          </p>
+          <h1>
+            <span class="name-line">{givenName}</span>
+            <span class="name-line name-family">{familyName}<span class="name-dot">.</span></span>
+          </h1>
+          <p class="hero-lede" set:html={heroLede} />
           <p class="hero-summary">{profile.summary}</p>
         </div>
 
         <aside class="current-work" id="projects" aria-labelledby="current-work-heading">
-          <p class="section-kicker" id="current-work-heading">Currently building</p>
+          <p class="section-kicker" id="current-work-heading">
+            <span class="kicker-index">00</span>Currently building
+          </p>
           <div class="project-list">
             {
               projects.map((project) => (
@@ -70,7 +100,7 @@ const pageDescription =
                   </span>
                   <span class="project-title">
                     {project.name}
-                    <span aria-hidden="true">-&gt;</span>
+                    <span class="project-arrow" aria-hidden="true">&rarr;</span>
                   </span>
                   <span class="project-description">{project.description}</span>
                   <span class="project-tags">
@@ -87,7 +117,9 @@ const pageDescription =
 
       <section class="section-shell split-section" aria-labelledby="experience-heading" id="experience">
         <div class="section-intro">
-          <p class="section-kicker" id="experience-heading">Experience</p>
+          <p class="section-kicker" id="experience-heading">
+            <span class="kicker-index">01</span>Experience
+          </p>
         </div>
         <div class="timeline">
           {
@@ -112,7 +144,9 @@ const pageDescription =
 
       <section class="section-shell split-section skills-section" aria-labelledby="skills-heading">
         <div class="section-intro">
-          <p class="section-kicker" id="skills-heading">Skills</p>
+          <p class="section-kicker" id="skills-heading">
+            <span class="kicker-index">02</span>Skills
+          </p>
         </div>
         <div class="skills-grid">
           {
@@ -132,7 +166,9 @@ const pageDescription =
 
       <section class="section-shell credentials-section" aria-labelledby="credentials-heading">
         <div>
-          <p class="section-kicker" id="credentials-heading">Credentials</p>
+          <p class="section-kicker" id="credentials-heading">
+            <span class="kicker-index">03</span>Credentials
+          </p>
         </div>
         <div class="credentials-grid">
           <article>
@@ -166,7 +202,9 @@ const pageDescription =
 
       <section class="section-shell contact-section" aria-labelledby="contact-heading" id="contact">
         <div>
-          <p class="section-kicker" id="contact-heading">Contact</p>
+          <p class="section-kicker" id="contact-heading">
+            <span class="kicker-index">04</span>Contact
+          </p>
           <p>
             Lebanese-Canadian, based in {profile.location} - authorized to work in Canada with no
             sponsorship, and open to remote roles. Best reached by email or LinkedIn for engineering
@@ -181,5 +219,10 @@ const pageDescription =
         </div>
       </section>
     </main>
+
+    <footer class="site-footer">
+      <span>&copy; 2026 {profile.name}</span>
+      <span>Typeset in Fraunces &amp; Plex Mono &middot; Built with Astro, no JavaScript</span>
+    </footer>
   </body>
 </html>
