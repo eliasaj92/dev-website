@@ -41,7 +41,7 @@ export const projects: Project[] = [
     stage: "Live",
     focus: "AI-assisted job search",
     description:
-      "A job board that re-verifies every listing daily and ranks the freshest roles first. Plain-English vector search, source-attributed links, and an MCP server plus API so AI agents can search too. Works for job seekers, never employers.",
+      "A job board that collects postings from other boards through Temporal-orchestrated pipelines, re-verifies every listing daily, and ranks the freshest roles first. Plain-English vector search, source-attributed links, and an MCP server plus API so AI agents can search too. Works for job seekers, never employers.",
     tags: ["Vector search", "MCP server", "Daily re-verified", "Chrome extension"],
   },
   {
@@ -126,11 +126,11 @@ export const skillGroups = [
   },
   {
     title: "Systems & data",
-    items: ["System design", "Microservices", "Workflow orchestration", "PostgreSQL", "DynamoDB", "Headless CMS"],
+    items: ["System design", "Microservices", "Workflow orchestration", "Temporal", "PostgreSQL", "DynamoDB", "Headless CMS"],
   },
   {
     title: "AWS & infrastructure",
-    items: ["Lambda", "ECS", "Step Functions", "SQS", "SNS", "CloudWatch", "Infrastructure as code (CDK)", "Docker", "CI/CD"],
+    items: ["Lambda", "ECS", "Step Functions", "SQS", "SNS", "CloudWatch", "Prometheus/Grafana", "Infrastructure as code (CDK)", "Docker", "CI/CD"],
   },
   {
     title: "Engineering practices",
