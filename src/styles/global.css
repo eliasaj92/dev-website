@@ -512,7 +512,8 @@ ul {
     display: none;
   }
 
-  .nav-links {
+  .nav-links,
+  .header-actions .hide-mobile {
     display: none;
   }
 

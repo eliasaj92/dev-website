@@ -26,6 +26,8 @@ export const profile = {
   location: "Beirut, Lebanon",
   email: "eliasaboujaoude92@gmail.com",
   linkedin: "https://www.linkedin.com/in/elias-abou-jaoude/",
+  github: "https://github.com/eliasaj92",
+  resume: "/Elias-Abou-Jaoude-Resume.pdf",
   headline:
     "Software engineer building production systems and useful products across healthcare access, creator commerce, and AI-assisted job search.",
   summary:
